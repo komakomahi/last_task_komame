@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神経衰弱</title>
+    <style>
+        h2 {
+            font-size: 50px;
+            margin: 25px 0 30px 59%; /* タイトルを中央に配置 */
+            transform: translateX(-50%);
+            color: rgb(255, 255, 255);
+        }
+
+        .card {
+            width: 70px;
+            height: 100px;
+            border: 2px solid;
+            float: left;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            line-height: 90px;
+            margin: 14px;
+            background-color: white;
+        }
+
+        .card.back {
+            background-image: url('card.jpg');  /* 裏面では画像を表示 */
+            background-size: auto;
+            background-position: center;
+        }
+
+        #field {
+            margin-top: 20px;
+            margin-left: 20%;
+            width: 60%;
+            display: flex;
+            flex-wrap: wrap;  /* カードを行ごとに並べる */
+            justify-content: center;  /* カードを中央に配置 */
+            gap: 10px;
+        }
+
+        #time {
+            margin: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        .comp {
+            opacity: 0;
+        }
+
+        body {
+            background-image: url('back.png');
+            background-size: cover; 
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .setup label {
+            color: white;
+        }
+
+        #leval {
+            flex-direction: column;
+            margin-bottom: 20px;
+            margin-left: 700px;
+            margin-top: 69px;
+            display: flex;
+            font-size: 19px;
+        }
+
+        #leval div {
+            display: flex; /* ラジオボタンとラベルを横並びに */
+            align-items: center;
+            margin: 14px 0;
+        }
+
+        #leval input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        #controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #ff5757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff9999;
+        }
+
+        button:active {
+            background-color: #783232;
+        }
+
+        #la {
+            font-size: 25px;
+        }
+
+        #playerlabel {
+            font-size: 25px;
+            margin-left: 600px;
+            margin-top: 10px;
+        }
+
+        #playerName {
+            font-size: 25px;
+            margin-left: 600px;
+            margin-top: 10px;
+        }
+
+        #start {
+            margin-left: 800px;
+        }
+
+        #returnButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff5757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+            margin-left: 670px;
+        }
+        #gameArea{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="setup">
+        <h2>神経衰弱ゲーム</h2>
+        <label id="playerlabel" for="playerName">名前を教えてください！</label>
+        <br>
+        <input type="text" id="playerName" placeholder="名前を入力">
+        <br>
+        <div id="leval">
+            <label id="la">難易度</label>
+            <div>
+                <input type="radio" id="easy" name="difficulty" value="easy" checked>
+                <label for="easy">易しい</label>
+            </div>
+            <div>
+                <input type="radio" id="medium" name="difficulty" value="medium">
+                <label for="medium">普通</label>
+            </div>
+            <div>
+                <input type="radio" id="hard" name="difficulty" value="hard">
+                <label for="hard">難しい</label>
+            </div>
+        </div>
+        <br>
+        <button id="start" onclick="startGame()">ゲーム開始</button>
+    </div>
+    
+    <div id="gameArea" style="display:none;">
+        <h2>神経衰弱ゲーム</h2>
+        <div id="time">TIME: 0秒</div>
+        <div id="field"></div>
+        <div id="controls">
+            <button onclick="togglePause()">タイム一時停止</button>
+            <button onclick="resetGame()">タイムリセット</button>
+        </div>
+        <button id="returnButton" onclick="returnToStartScreen()">スタート画面に戻る</button>
+    </div>
+    
+    <script src="last.js"></script>
+</body>
+</html>
