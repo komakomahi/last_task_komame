@@ -114,6 +114,7 @@ function shuffle(array) {
 }
 
 function flipCard() {
+    if (gameInterval === null) return;
     if (flippedCards.length === 2) return; // 2枚以上のカードをめくれない
 
     const card = this;
